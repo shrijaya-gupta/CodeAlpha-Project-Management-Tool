@@ -1,0 +1,157 @@
+{
+  "info": {
+    "name": "TaskFlow - Phase 3 Task Management API",
+    "_postman_id": "76c12d90-taskflow-phase3-tasks",
+    "description": "Collection of API requests for TaskFlow Phase 3: Task creation, listing, filtering, search, pagination, sorting, updating, assignees management, and deletion.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Task in Project",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement User Authentication UI\",\n  \"description\": \"Design and implement login/signup forms with validation feedback\",\n  \"priority\": \"high\",\n  \"status\": \"todo\",\n  \"dueDate\": \"2026-12-15T18:00:00.000Z\",\n  \"assignees\": [\"{{member_user_id}}\"]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/projects/{{project_id}}/tasks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects", "{{project_id}}", "tasks"]
+        }
+      }
+    },
+    {
+      "name": "List Project Tasks (Filters, Search & Pagination)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/projects/{{project_id}}/tasks?status=todo&priority=high&search=Auth&page=1&limit=10&sortBy=dueDate&order=asc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects", "{{project_id}}", "tasks"],
+          "query": [
+            { "key": "status", "value": "todo" },
+            { "key": "priority", "value": "high" },
+            { "key": "search", "value": "Auth" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "10" },
+            { "key": "sortBy", "value": "dueDate" },
+            { "key": "order", "value": "asc" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Task Details",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/tasks/{{task_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "{{task_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Task Details",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement User Authentication UI (Responsive)\",\n  \"status\": \"in_progress\",\n  \"priority\": \"urgent\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/tasks/{{task_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "{{task_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Task Assignees",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"assignees\": [\"{{member_user_id}}\"]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/tasks/{{task_id}}/assignees",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "{{task_id}}", "assignees"]
+        }
+      }
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/tasks/{{task_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "{{task_id}}"]
+        }
+      }
+    }
+  ]
+}

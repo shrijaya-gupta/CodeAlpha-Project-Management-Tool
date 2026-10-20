@@ -1,0 +1,133 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "TaskFlow - Phase 3 Task Management API",
+  "collectionId": "taskflow-tasks-phase-3",
+  "dateExported": "2026-10-20",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "req-create-task",
+      "colId": "taskflow-tasks-phase-3",
+      "name": "1. Create Task in Project",
+      "url": "http://localhost:5000/api/projects/{{project_id}}/tasks",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Implement User Authentication UI\",\n  \"description\": \"Design and implement login/signup forms with validation feedback\",\n  \"priority\": \"high\",\n  \"status\": \"todo\",\n  \"dueDate\": \"2026-12-15T18:00:00.000Z\",\n  \"assignees\": [\"{{member_user_id}}\"]\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req-list-project-tasks",
+      "colId": "taskflow-tasks-phase-3",
+      "name": "2. List Tasks in Project (Filters, Search & Pagination)",
+      "url": "http://localhost:5000/api/projects/{{project_id}}/tasks?status=todo&priority=high&search=Auth&page=1&limit=10&sortBy=dueDate&order=asc",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-get-task-details",
+      "colId": "taskflow-tasks-phase-3",
+      "name": "3. Get Task Details",
+      "url": "http://localhost:5000/api/tasks/{{task_id}}",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-update-task",
+      "colId": "taskflow-tasks-phase-3",
+      "name": "4. Update Task Details",
+      "url": "http://localhost:5000/api/tasks/{{task_id}}",
+      "method": "PATCH",
+      "sortNum": 40000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Implement User Authentication UI (Responsive)\",\n  \"status\": \"in_progress\",\n  \"priority\": \"urgent\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req-update-assignees",
+      "colId": "taskflow-tasks-phase-3",
+      "name": "5. Update Task Assignees",
+      "url": "http://localhost:5000/api/tasks/{{task_id}}/assignees",
+      "method": "PUT",
+      "sortNum": 50000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"assignees\": [\"{{member_user_id}}\"]\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req-delete-task",
+      "colId": "taskflow-tasks-phase-3",
+      "name": "6. Delete Task",
+      "url": "http://localhost:5000/api/tasks/{{task_id}}",
+      "method": "DELETE",
+      "sortNum": 60000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ]
+    }
+  ]
+}

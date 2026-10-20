@@ -1,0 +1,149 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "TaskFlow - Phase 2 Project Management API",
+  "collectionId": "taskflow-projects-phase-2",
+  "dateExported": "2026-10-20",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "req-create-project",
+      "colId": "taskflow-projects-phase-2",
+      "name": "1. Create Project",
+      "url": "http://localhost:5000/api/projects",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Final Year Capstone Project\",\n  \"description\": \"A collaborative project management tool built with MERN stack\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req-list-projects",
+      "colId": "taskflow-projects-phase-2",
+      "name": "2. List Accessible Projects (Search & Filter)",
+      "url": "http://localhost:5000/api/projects?page=1&limit=10&status=active&search=Capstone",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-get-project-details",
+      "colId": "taskflow-projects-phase-2",
+      "name": "3. Get Project Details",
+      "url": "http://localhost:5000/api/projects/{{project_id}}",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-update-project",
+      "colId": "taskflow-projects-phase-2",
+      "name": "4. Update Project (Owner Only)",
+      "url": "http://localhost:5000/api/projects/{{project_id}}",
+      "method": "PATCH",
+      "sortNum": 40000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Capstone Project - Production Release\",\n  \"description\": \"Updated description with Phase 2 capabilities\",\n  \"status\": \"active\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req-add-member",
+      "colId": "taskflow-projects-phase-2",
+      "name": "5. Add Team Member (Owner Only)",
+      "url": "http://localhost:5000/api/projects/{{project_id}}/members",
+      "method": "POST",
+      "sortNum": 50000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"teammate@example.com\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req-remove-member",
+      "colId": "taskflow-projects-phase-2",
+      "name": "6. Remove Team Member (Owner Only)",
+      "url": "http://localhost:5000/api/projects/{{project_id}}/members/{{member_user_id}}",
+      "method": "DELETE",
+      "sortNum": 60000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-delete-project",
+      "colId": "taskflow-projects-phase-2",
+      "name": "7. Delete Project (Owner Only)",
+      "url": "http://localhost:5000/api/projects/{{project_id}}",
+      "method": "DELETE",
+      "sortNum": 70000,
+      "created": "2026-10-20",
+      "modified": "2026-10-20",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{auth_token}}"
+        }
+      ]
+    }
+  ]
+}

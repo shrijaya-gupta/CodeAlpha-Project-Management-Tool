@@ -1,0 +1,33 @@
+{
+  "name": "taskflow-server",
+  "version": "0.1.0",
+  "description": "TaskFlow backend REST API using Node.js, Express, and MongoDB",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node tests/test-auth.js && node tests/test-projects.js && node tests/test-tasks.js",
+    "test:auth": "node tests/test-auth.js",
+    "test:projects": "node tests/test-projects.js",
+    "test:tasks": "node tests/test-tasks.js"
+  },
+  "keywords": [
+    "taskflow",
+    "project-management",
+    "express",
+    "mongodb",
+    "jwt",
+    "rest-api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "express-validator": "^7.3.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.2"
+  }
+}

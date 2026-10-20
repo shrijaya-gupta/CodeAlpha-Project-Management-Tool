@@ -1,0 +1,173 @@
+{
+  "info": {
+    "name": "TaskFlow - Phase 2 Project Management API",
+    "_postman_id": "84a7e281-taskflow-phase2-projects",
+    "description": "Collection of API requests for TaskFlow Phase 2: Project creation, listing, searching, pagination, updating, team member management, and deletion.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Project",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Final Year Capstone Project\",\n  \"description\": \"A collaborative project management tool built with MERN stack\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/projects",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects"]
+        }
+      }
+    },
+    {
+      "name": "List Projects (Search, Filter, Pagination)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/projects?page=1&limit=10&status=active&search=Capstone",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects"],
+          "query": [
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "10" },
+            { "key": "status", "value": "active" },
+            { "key": "search", "value": "Capstone" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Project Details",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/projects/{{project_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects", "{{project_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Project (Owner Only)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Capstone Project - Production Release\",\n  \"description\": \"Updated description with Phase 2 capabilities\",\n  \"status\": \"active\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/projects/{{project_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects", "{{project_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Add Team Member (Owner Only)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"teammate@example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/projects/{{project_id}}/members",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects", "{{project_id}}", "members"]
+        }
+      }
+    },
+    {
+      "name": "Remove Team Member (Owner Only)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/projects/{{project_id}}/members/{{member_user_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects", "{{project_id}}", "members", "{{member_user_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Project (Owner Only)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/projects/{{project_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "projects", "{{project_id}}"]
+        }
+      }
+    }
+  ]
+}

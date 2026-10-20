@@ -1,0 +1,22 @@
+{
+  "name": "taskflow",
+  "version": "0.1.0",
+  "description": "TaskFlow - Collaborative Project Management Web Application (MERN Stack)",
+  "private": true,
+  "scripts": {
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "start": "node server/src/server.js"
+  },
+  "keywords": [
+    "taskflow",
+    "project-management",
+    "kanban",
+    "react",
+    "express",
+    "mongodb",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "MIT"
+}
